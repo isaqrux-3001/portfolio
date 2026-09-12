@@ -106,6 +106,12 @@ h1 {
   color: var(--neutral-600);
   margin: 0 0 36px;
 }
+.hero-note {
+  margin: -16px 0 24px;
+  font-size: 0.85rem;
+  color: var(--neutral-500);
+  font-style: italic;
+}
 .btn {
   display: inline-flex;
   align-items: center;
