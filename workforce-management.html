@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Field note 04 · Workforce management</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Isabel Quintela <span>/ Field notes</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#work" aria-current="page">Work</a>
+      <a href="about.html">About</a>
+      <a href="Isabel-Quintela-CV.pdf">Résumé</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+  <header class="cs-hero">
+    <div class="labelbar"><span><b>Field note 04</b> / Workforce management</span><span>Industry page / Kronos / 2018–2019</span></div>
+    <div class="cs-hero-grid" style="padding-top: clamp(32px, 5vw, 64px)">
+      <span class="numeral numeral--hero" data-count="4">04</span>
+      <div class="stack-lg">
+        <h1 class="h1">Scheduling tools for shift workers, staffers and managers</h1>
+        <p class="cs-outcome">All UX: briefs, task analysis, wireflows, wireframes and behavior specs</p>
+        <p class="lede">As an interaction designer at Kronos, I designed how employees in hospitals and other shift-based workplaces change their schedules, and how managers and staffers review those changes. My part was UX: briefs, task analysis, wireflows, wireframes and behavior specs. The visual design team took it from there.</p>
+      </div>
+    </div>
+    <dl class="meta">
+      <div><dt>Role</dt><dd>Interaction Designer, Scheduling</dd></div>
+      <div><dt>Product</dt><dd>Dimensions, Kronos’s workforce management platform</dd></div>
+      <div><dt>Users</dt><dd>Shift workers, managers, staffers, admins</dd></div>
+      <div><dt>Platforms</dt><dd>Mobile and desktop</dd></div>
+    </dl>
+    <div class="grid" style="border-top: 0">
+      <div class="cell span-8">
+        <span class="sub">00.1</span>
+        <div class="stack">
+          <img class="shot" src="img/kronos-rtc-wireflow.jpg" width="2000" height="1137" alt="Request to Cover wireflow: three entry points lead to the employee list, with branches for comments, shift details and filters, then a summary; a separate diagram shows the request lifecycle for sender, recipient and manager.">
+          <p class="caption">Request to Cover wireflow across employee, recipient and manager.</p>
+        </div>
+      </div>
+      <div class="cell cell--raised span-4">
+        <span class="sub">00.2</span>
+        <dl class="tldr">
+          <p class="label">TL;DR</p>
+          <div><dt>Featured</dt><dd>Request to Cover and Availability Request, from design brief to behavior specs.</dd></div>
+          <div><dt>My part</dt><dd>UX only. The visual design team took it from there.</dd></div>
+          <div><dt>Also</dt><dd>Absence Calendar, Staffing Assistant call list, Manage Periods and Fill Open Shifts.</dd></div>
+        </dl>
+        <ul class="tags" aria-label="UX skills on this page" style="margin-top: 24px">
+          <li>Design briefs, personas, pain points</li>
+          <li>Task analysis</li>
+          <li>Wireflows across several roles</li>
+          <li>Rules, defaults and edge cases</li>
+          <li>Usability-test scenarios</li>
+          <li>Accessibility notes</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="cs">
+    <nav class="rail" aria-label="On this page">
+      <p class="label">Field note 04</p>
+      <ol>
+        <li><a href="#cover"><span>01</span>Request to Cover</a></li>
+        <li><a href="#availability"><span>02</span>Availability Request</a></li>
+        <li><a href="#more"><span>03</span>More from Kronos</a></li>
+        <li><a href="#process"><span>04</span>How I worked</a></li>
+      </ol>
+    </nav>
+
+    <div class="cs-main">
+
+      <section class="section" id="cover" aria-labelledby="h-cover">
+        <div class="labelbar"><span><b>01</b> / Request to Cover</span><span>Employee self-service + manager control center</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="1">01</span>
+          <div class="stack"><h2 class="h2" id="h-cover">Request to Cover: giving away a shift without the phone calls</h2></div>
+        </div>
+        <div class="grid">
+          <div class="cell span-12">
+            <span class="sub">01.1</span>
+            <p class="body">When Howard, a facilities technician, couldn’t work a shift, he asked colleagues one by one, then waited for his manager. His questions were “How many people will I have to ask?” and “Will I still work my minimum hours?” I wrote the design brief: objectives, three personas (sender, receiver, manager), their pain points ranked by severity, and the scope.</p>
+          </div>
+          <div class="cell span-6"><span class="sub">01.2</span><div class="stack-sm"><h3 class="h3">Recommend who to ask</h3><p>The employee list ranks colleagues by fit: a match score, “Usually accepts extra shifts”, and shared history like “Alex covered 2 shifts for you in the past year”. Filters cover skills, certifications and availability at the time of the shift. People who can’t take it stay visible, with the reason.</p></div></div>
+          <div class="cell span-6"><span class="sub">01.3</span><div class="stack-sm"><h3 class="h3">Shortest path from three entry points</h3><p>Start from the home page tile, the calendar, or a day’s details. Coming from a day with one shift skips the shift list entirely.</p></div></div>
+          <div class="cell span-6"><span class="sub">01.4</span><div class="stack-sm"><h3 class="h3">Explain the rules before they block</h3><p>Shifts that can’t be given away are greyed out with the reason, auto-approved shifts say so, and the sender reads “You are still responsible for your shift until someone else takes it.”</p></div></div>
+          <div class="cell span-6"><span class="sub">01.5</span><div class="stack-sm"><h3 class="h3">Show the manager the consequences</h3><p>Rule violations per employee, with new ones in red and removed ones in green, and a warning that approving one acceptance refuses the others.</p></div></div>
+          <div class="cell span-12">
+            <span class="sub">01.6</span>
+            <div class="stack">
+              <figure class="anno anno--wide">
+                <div class="anno-media">
+                  <div class="anno-img">
+                    <img class="shot" src="img/kronos-rtc-employees.jpg" width="1600" height="933" alt="Two wireframes: Refine Employee List with filters for location, worker type, matching skills and certifications, and availability; and Employee Details with a recommendation match score, shared shift history and availability at the time of the shift.">
+                    <span class="pin" data-n="1" style="left: 70%; top: 37%">1</span>
+                    <span class="pin" data-n="2" style="left: 19%; top: 47%">2</span>
+                    <span class="pin" data-n="3" style="left: 74%; top: 72%">3</span>
+                  </div>
+                </div>
+                <ol class="anno-notes">
+                  <li data-n="1"><span><b>A match score</b>With the shared history behind it.</span></li>
+                  <li data-n="2"><span><b>Filters</b>Skills, certifications, availability.</span></li>
+                  <li data-n="3"><span><b>Availability at the time of the shift</b>So the sender asks the right people.</span></li>
+                </ol>
+                <svg class="anno-lines" aria-hidden="true"></svg>
+              </figure>
+              <p class="body">I reused the Swap request’s patterns for consistency, wrote usability-test scenarios, and iterated the scope over four versions: from one-to-one up to many-to-many, then back to one-to-one and one-to-many, dropping groups and the open-shift market.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="availability" aria-labelledby="h-availability">
+        <div class="labelbar"><span><b>02</b> / Availability Request</span><span>Employee self-service</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="2">02</span>
+          <div class="stack"><h2 class="h2" id="h-availability">Availability Request: telling your manager when you can work</h2><p class="lede">An ER nurse wants to share when she can and can’t work, so her manager can schedule her in advance, instead of calling, emailing or leaving a note.</p></div>
+        </div>
+        <div class="grid">
+          <div class="cell span-7 row-3">
+            <span class="sub">02.1</span>
+            <div class="stack">
+              <img class="shot" src="img/wfm-availability-flow.jpg" width="1600" height="1429" alt="Availability Change Request wireframes: set status and hours for selected days, add another status, merge with or replace previously scheduled availability, and day cards that show overnight timeframes such as Available until 8:00 AM.">
+              <p class="caption">Set status and timeframes, merge or replace, then day cards that split overnight shifts.</p>
+            </div>
+          </div>
+          <div class="cell span-5"><span class="sub">02.2</span><div class="stack-sm"><h3 class="h3">Calendar first</h3><p>Pick the days, then set statuses and timeframes. Three ways in: a day on the calendar, the New Request menu, or the Requests tile.</p></div></div>
+          <div class="cell span-5"><span class="sub">02.3</span><div class="stack-sm"><h3 class="h3">Smart defaults for merge or replace</h3><p>I mapped every editing scenario (first or repeat edit, one day or many, with or without existing availability) and set a default for each: a first edit merges with what’s scheduled, and editing again replaces it.</p></div></div>
+          <div class="cell span-5"><span class="sub">02.4</span><div class="stack-sm"><h3 class="h3">Overnight shifts</h3><p>One timeframe can run past midnight. The day cards split it into 24-hour days, “Available since 9:00 PM” and “Available until 8:00 AM”, and flag conflicts with the next day.</p></div></div>
+          <div class="cell span-6"><span class="sub">02.5</span><div class="stack-sm"><h3 class="h3">Soft alerts, not errors</h3><p>Reducing your available hours shows a gentle note and never blocks the request. Overlapping timeframes get an inline error.</p></div></div>
+          <div class="cell span-6"><span class="sub">02.6</span><div class="stack-sm"><h3 class="h3">Manager review in numbers</h3><p>Hours before and after, an increase or decrease marker per day, and rule violations, such as “Availability hours has been reduced by 2h.”</p></div></div>
+        </div>
+      </section>
+
+      <section class="section" id="more" aria-labelledby="h-more">
+        <div class="labelbar"><span><b>03</b> / More from Kronos</span><span>4 projects</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="3">03</span>
+          <div class="stack"><h2 class="h2" id="h-more">More from Kronos</h2></div>
+        </div>
+        <div class="grid">
+          <article class="cell span-6"><span class="sub">03.1</span><div class="stack-sm"><p class="label">Managers</p><h3 class="h3">Absence Calendar</h3><p>A year view with three levels of information: requests the system doesn’t recommend approving, the number of incoming requests, then paycodes. Since Gantt views aren’t accessible, I wrote screen-reader guidance for the glances.</p></div></article>
+          <article class="cell span-6"><span class="sub">03.2</span><div class="stack-sm"><p class="label">Staffers</p><h3 class="h3">Staffing Assistant call list</h3><p>I joined after its first version. Open shifts on one side, the people who’d be a good fit on the other, with one-click assign and a data view the staffer can set up.</p></div></article>
+          <article class="cell span-6"><span class="sub">03.3</span><div class="stack-sm"><p class="label">Admins</p><h3 class="h3">Manage Periods</h3><p>I joined after its first version. A wireflow for setting up self-scheduling periods: one or several groups, opening by employee priority, recurring or rolling periods, and cyclical or sequential rotation.</p></div></article>
+          <article class="cell span-6"><span class="sub">03.4</span><div class="stack-sm"><p class="label">Managers</p><h3 class="h3">Fill Open Shifts</h3><p>A wireflow from the SMS Quick Fill tile: pick the open shift, choose employees, send the message.</p></div></article>
+        </div>
+      </section>
+
+      <section class="section" id="process" aria-labelledby="h-process">
+        <div class="labelbar"><span><b>04</b> / How I worked</span><span>Brief → handoff</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="4">04</span>
+          <div class="stack"><h2 class="h2" id="h-process">How I worked</h2></div>
+        </div>
+        <div class="grid">
+          <div class="cell span-4"><span class="sub">04.1</span><div class="stack-sm"><h3 class="h3">Design brief</h3><p class="small">Objectives, personas, pain points, scope</p></div></div>
+          <div class="cell span-4"><span class="sub">04.2</span><div class="stack-sm"><h3 class="h3">Task analysis</h3><p class="small">How people do it today</p></div></div>
+          <div class="cell span-4"><span class="sub">04.3</span><div class="stack-sm"><h3 class="h3">Wireflow</h3><p class="small">Every role, every entry point</p></div></div>
+          <div class="cell span-4"><span class="sub">04.4</span><div class="stack-sm"><h3 class="h3">Wireframes and specs</h3><p class="small">Behavior, defaults, edge cases</p></div></div>
+          <div class="cell span-4"><span class="sub">04.5</span><div class="stack-sm"><h3 class="h3">Usability tests</h3><p class="small">Prototype and task scenarios</p></div></div>
+          <div class="cell span-4"><span class="sub">04.6</span><div class="stack-sm"><h3 class="h3">Handoff</h3><p class="small">To the visual design team and developers</p></div></div>
+          <div class="cell span-12"><span class="sub">04.7</span><p class="body">Each deliverable was documented with a version history, so developers and the visual design team could follow how the behavior changed. A thread you’ll also see in my later work: explain the rules before they block people, and give whoever decides the information they need.</p></div>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="More field notes">
+        <div class="cell cell--link"><span class="sub">←</span><div class="cell-inner stack-sm"><p class="label">All work</p><a class="h3 stretch" href="index.html#work">Index</a></div></div>
+        <div class="cell cell--link"><span class="sub">→</span><div class="cell-inner stack-sm"><p class="label">My current work · Field note 01</p><a class="h3 stretch" href="rava.html">Rava</a></div></div>
+      </nav>
+    </div>
+  </div>
+</main>
+<footer class="wrap contact" id="contact" aria-labelledby="contact-title">
+  <div class="labelbar"><span><b>→</b> Contact</span><span>Montreal / English · Français · Español</span></div>
+  <div class="grid">
+    <div class="cell span-7">
+      <span class="sub">C.1</span>
+      <div class="stack-lg">
+        <h2 class="statement" id="contact-title" style="font-size: clamp(1.75rem, 3.4vw, 2.75rem)">Let’s talk.</h2>
+        <p class="lede">I’m always happy to talk about AI products, complex systems and design leadership. LinkedIn is the fastest way to reach me.</p>
+      </div>
+    </div>
+    <div class="cell span-5">
+      <span class="sub">C.2</span>
+      <div class="stack-lg">
+        <div class="actions" style="flex-direction: column; align-items: stretch">
+          <a class="btn btn--primary" href="https://www.linkedin.com/in/isabel-quintela/">Message me on LinkedIn <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn" href="Isabel-Quintela-CV.pdf">Résumé (PDF) <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+        <p class="small">Or email me at <a class="link email" href="mailto:isaqrux@gmail.com">isaqrux@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="colophon"><span>© 2026 Isabel Quintela</span><span>Designed and built with AI</span></div>
+</footer>
+<script src="site.js" defer></script>
+</body>
+</html>

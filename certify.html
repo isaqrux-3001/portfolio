@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Field note 02 · Certify</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Isabel Quintela <span>/ Field notes</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#work" aria-current="page">Work</a>
+      <a href="about.html">About</a>
+      <a href="Isabel-Quintela-CV.pdf">Résumé</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+  <header class="cs-hero">
+    <div class="labelbar"><span><b>Field note 02</b> / Certify</span><span>Case study / RouteThis</span></div>
+    <div class="cs-hero-grid" style="padding-top: clamp(32px, 5vw, 64px)">
+      <span class="numeral numeral--hero" data-count="2">02</span>
+      <div class="stack-lg">
+        <h1 class="h1">Certify: redesigning an install app around how technicians work</h1>
+        <p class="cs-outcome">A multi-week redesign cycle cut to 2 days</p>
+        <p class="lede">A hub redesign of the Android app technicians use for WiFi installs, prototyped in working code in two days, and a certificate that Rava explains to the customer. Plus concepts for AI photo checks and a manager dashboard.</p>
+      </div>
+    </div>
+    <dl class="meta">
+      <div><dt>Role</dt><dd>Lead Product Designer</dd></div>
+      <div><dt>Team</dt><dd>Sole designer, with a PM, a tech lead and a co-op developer I mentor from a UXD perspective</dd></div>
+      <div><dt>Users</dt><dd>Field technicians; ISP managers at two levels</dd></div>
+      <div><dt>Scope</dt><dd>Android app, desktop admin</dd></div>
+    </dl>
+    <div class="grid" style="border-top: 0">
+      <div class="cell span-8">
+        <span class="sub">00.1</span>
+        <div class="frame frame--bare">
+          <img class="screen" src="img/certify-hub.jpg" width="412" height="915" alt="Certify install hub: Setup, Measure and Document tools, each with its own status, and 5 of 7 completed.">
+          <img class="screen" src="img/certify-coverage.jpg" width="412" height="915" alt="Coverage walk test: a floor plan with readings per room, Excellent in the entry, Weak in the kitchen, No signal in the bathroom.">
+          <img class="screen" src="img/certify-speedtest.jpg" width="412" height="915" alt="Speed test complete, with the result compared against the plan speed.">
+        </div>
+      </div>
+      <div class="cell cell--raised span-4">
+        <span class="sub">00.2</span>
+        <dl class="tldr">
+          <p class="label">TL;DR</p>
+          <div><dt>Problem</dt><dd>Technicians were forced through a locked, linear install flow, and managers had no clear view of install quality across thousands of technicians.</dd></div>
+          <div><dt>My contribution</dt><dd>Redesigned the flow as a hub, built a working Android version in two days to test it, designed how each install’s certificate reaches the customer through Rava, and designed concepts for AI photo checks and a manager dashboard.</dd></div>
+          <div><dt>Impact</dt><dd>A multi-week redesign cycle cut to 2 days. Internal testing has been positive so far, mostly surfacing bugs; testing with technicians is next.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </header>
+
+  <div class="cs">
+    <nav class="rail" aria-label="On this page">
+      <p class="label">Field note 02</p>
+      <ol>
+        <li><a href="#context"><span>01</span>Context</a></li>
+        <li><a href="#problem"><span>02</span>The real problem</a></li>
+        <li><a href="#role"><span>03</span>My role &amp; influence</a></li>
+        <li><a href="#decisions"><span>04</span>Key decisions</a></li>
+        <li><a href="#outcome"><span>05</span>Outcome</a></li>
+        <li><a href="#reflection"><span>06</span>Reflection</a></li>
+      </ol>
+    </nav>
+
+    <div class="cs-main">
+
+      <!-- 01 Context -->
+      <section class="section" id="context" aria-labelledby="h-context">
+        <div class="labelbar"><span><b>01</b> / Context</span><span>The system</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="1">01</span>
+          <div class="stack"><h2 class="h2" id="h-context">Context</h2></div>
+        </div>
+        <div class="grid">
+          <div class="cell span-12">
+            <span class="sub">01.1</span>
+            <div class="stack">
+              <h3 class="h3">One install, three kinds of users</h3>
+              <p class="body">Every install produces a WiFi certificate. The technician creates it, the manager gets the technical version, and the customer gets theirs through Rava.</p>
+            </div>
+          </div>
+          <div class="cell cell--flush span-12">
+            <ol class="flow" style="--n: 5; border: 0" aria-label="How one install reaches three kinds of users">
+              <li><span class="label">Step 1</span><b>Technician · Android app</b><p>Runs the install: router placement, speed test, coverage walk, photos.</p></li>
+              <li><span class="label">Step 2</span><b>Confirm and certify</b><p>A summary of verdicts, not raw readings. Issues like a weak room or a missing pod are named and recorded.</p></li>
+              <li><span class="label">Step 3</span><b>Managers · desktop dashboard</b><p>Get the technical certificate. L1 managers see their technicians; L2 managers see their L1 teams.</p><span class="pill pill--concept">Concept</span></li>
+              <li><span class="label">Step 4</span><b>Customer · SMS or QR code</b><p>A link to their certificate leads them to install RouteThis Helps.</p><span class="pill pill--design">In design</span></li>
+              <li style="border-right: 0"><span class="label">Step 5</span><b>Rava explains it</b><p>Walks the customer through their certificate, room by room, and helps fix what’s weak.</p><span class="pill pill--design">In design</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 The real problem -->
+      <section class="section" id="problem" aria-labelledby="h-problem">
+        <div class="labelbar"><span><b>02</b> / The real problem</span><span>Before</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="2">02</span>
+          <div class="stack"><h2 class="h2" id="h-problem">The real problem</h2></div>
+        </div>
+        <div class="grid">
+          <div class="cell span-12">
+            <span class="sub">02.1</span>
+            <div class="stack">
+              <h3 class="h3">The flow was the bigger problem, not any one screen</h3>
+              <p class="body">The original Certify app was designed without user research. It forced every technician through the same locked, linear flow, whatever their experience. Interviews made the real problem clear: to change one thing, a technician had to go back through a long chain of screens and repeat steps they had already done.</p>
+            </div>
+          </div>
+          <div class="cell span-12">
+            <span class="sub">02.2</span>
+            <div class="stack">
+              <div class="frame frame--bare frame--strip">
+                <div class="labelled"><img class="screen screen--sm" src="img/certify-real-1-building.jpg" width="430" height="932" alt="Before, step 1: building selection, with Previous and Next."><span>01 Building</span></div>
+                <div class="labelled"><img class="screen screen--sm" src="img/certify-real-2-unittype.jpg" width="430" height="932" alt="Before, step 2: unit type."><span>02 Unit type</span></div>
+                <div class="labelled"><img class="screen screen--sm" src="img/certify-real-3-customunit.jpg" width="430" height="932" alt="Before, step 3: custom unit."><span>03 Custom unit</span></div>
+                <div class="labelled"><img class="screen screen--sm" src="img/certify-real-4-orientation.jpg" width="430" height="932" alt="Before, step 4: orientation."><span>04 Orientation</span></div>
+                <div class="labelled"><img class="screen screen--sm" src="img/certify-real-5-router.jpg" width="430" height="932" alt="Before, step 5: router placement."><span>05 Router</span></div>
+              </div>
+              <p class="caption">Before: building selection to router placement, each screen with only Previous and Next.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 My role & influence -->
+      <section class="section" id="role" aria-labelledby="h-role">
+        <div class="labelbar"><span><b>03</b> / My role &amp; influence</span><span>Sole designer / Mentor</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="3">03</span>
+          <div class="stack"><h2 class="h2" id="h-role">My role &amp; influence</h2></div>
+        </div>
+        <div class="grid">
+          <div class="cell span-5">
+            <span class="sub">03.1</span>
+            <div class="stack">
+              <p class="label">Team</p>
+              <p>Sole designer, with a PM, a tech lead and a co-op developer I mentor from a UXD perspective.</p>
+            </div>
+          </div>
+          <div class="cell span-7">
+            <span class="sub">03.2</span>
+            <div class="stack">
+              <p class="label">What I did</p>
+              <p>Redesigned the flow as a hub, built a working Android version in two days to test it, designed how each install’s certificate reaches the customer through Rava, and designed concepts for AI photo checks and a manager dashboard.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 Key decisions -->
+      <section class="section" id="decisions" aria-labelledby="h-decisions">
+        <div class="labelbar"><span><b>04</b> / Key decisions &amp; tradeoffs</span><span>5 decisions</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="4">04</span>
+          <div class="stack"><h2 class="h2" id="h-decisions">Key decisions &amp; tradeoffs</h2></div>
+        </div>
+        <div class="grid">
+
+          <!-- 04.1 -->
+          <div class="cell span-7">
+            <span class="sub">04.1</span>
+            <figure class="anno">
+              <div class="anno-media">
+                <div class="anno-img">
+                  <img class="screen" src="img/certify-hub.jpg" width="412" height="915" alt="The install hub after the redesign: tools grouped by Setup, Measure and Document, each with its own status.">
+                  <span class="pin" data-n="1" style="left: 67.5%; top: 28%">1</span>
+                  <span class="pin" data-n="2" style="left: 11%; top: 55.3%">2</span>
+                  <span class="pin" data-n="3" style="left: 71%; top: 60.2%">3</span>
+                </div>
+              </div>
+              <ol class="anno-notes">
+                <li data-n="1"><span><b>One gate</b>Router placement is the only required step.</span></li>
+                <li data-n="2"><span><b>Grouped by phase</b>Setup, Measure, Document.</span></li>
+                <li data-n="3"><span><b>Independent progress</b>Fixing one tool doesn’t reset the others.</span></li>
+              </ol>
+              <svg class="anno-lines" aria-hidden="true"></svg>
+            </figure>
+          </div>
+          <div class="cell span-5">
+            <div class="stack-lg">
+              <div class="stack-sm"><div class="pills"><span class="label">04.1</span><span class="pill pill--testing">Internal testing</span></div><h3 class="h3">One gate, then seven tools in any order</h3></div>
+              <dl class="cdw">
+                <div><dt>Context</dt><dd>Technicians bring different levels of experience, and a locked sequence slowed down everyone who knew what they were doing.</dd></div>
+                <div><dt>Decision</dt><dd>One required step at router placement, then seven tools a technician can complete in any order, grouped by phase with independent progress.</dd></div>
+                <div><dt>Why</dt><dd>Each technician can work the way the job on site demands, and fixing one step no longer means redoing the others.</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <!-- 04.2 -->
+          <div class="cell cell--flush span-7">
+            <span class="sub">04.2</span>
+            <ol class="flow" style="--n: 3; border: 0; height: 100%" aria-label="From journey map to a running build">
+              <li><span class="label">Map</span><b>Old journey vs. the hub</b><p>I mapped both journeys side by side.</p></li>
+              <li><span class="label">Concept</span><b>Claude + Figma</b><p>The map became a working hub screen.</p></li>
+              <li style="border-right: 0"><span class="label">Build</span><b>Running Android app</b><p>About two days, from Figma to a build people can test.</p></li>
+            </ol>
+          </div>
+          <div class="cell span-5">
+            <div class="stack-lg">
+              <div class="stack-sm"><p class="label">04.2</p><h3 class="h3">Build it, don’t mock it</h3></div>
+              <dl class="cdw">
+                <div><dt>Decision</dt><dd>I mapped the old journey and the hub, used Claude connected to Figma to turn the map into a working hub screen, then built a running Android version in about two days.</dd></div>
+                <div><dt>Why</dt><dd>Testing happens on real, working software instead of a click-through prototype, and a cycle that usually takes weeks took two days.</dd></div>
+                <div><dt>Testing so far</dt><dd>Internal testing with RouteThis employees: positive feedback, mostly bug finds. Testing with field technicians comes next.</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <!-- 04.3 -->
+          <div class="cell span-7">
+            <span class="sub">04.3</span>
+            <figure class="anno">
+              <div class="anno-media">
+                <div class="anno-img">
+                  <img class="screen" src="img/certify-photo-tv.jpg" width="412" height="915" alt="Photo check concept: the router is behind a TV, marked on the photo, with an explanation, what was checked, and Keep anyway or Retake photo.">
+                  <span class="pin" data-n="1" style="left: 60%; top: 21%">1</span>
+                  <span class="pin" data-n="2" style="left: 52%; top: 55%">2</span>
+                  <span class="pin" data-n="3" style="left: 23%; top: 94.6%">3</span>
+                </div>
+              </div>
+              <ol class="anno-notes">
+                <li data-n="1"><span><b>Exactly what’s wrong</b>Marked on the photo itself.</span></li>
+                <li data-n="2"><span><b>How to fix it</b>In one plain sentence.</span></li>
+                <li data-n="3"><span><b>“Keep anyway”</b>The AI advises; the person on site makes the call.</span></li>
+              </ol>
+              <svg class="anno-lines" aria-hidden="true"></svg>
+            </figure>
+          </div>
+          <div class="cell span-5">
+            <div class="stack-lg">
+              <div class="stack-sm"><div class="pills"><span class="label">04.3</span><span class="pill pill--concept">Concept</span></div><h3 class="h3">Every install photo gets an AI check</h3></div>
+              <dl class="cdw">
+                <div><dt>Context</dt><dd>A bad install means a repeat visit. Catching a cable in the wrong port or a router behind a TV while the technician is still on site costs far less.</dd></div>
+                <div><dt>Decision</dt><dd>Check each photo as it’s taken, and say exactly what’s wrong and how to fix it.</dd></div>
+                <div><dt>Why the AI never blocks</dt><dd>Technicians can choose “Keep anyway”. The AI advises, and the person on site makes the call.</dd></div>
+              </dl>
+              <div class="frame frame--bare" style="justify-content: flex-start">
+                <div class="labelled"><img class="screen screen--sm" src="img/certify-photo-passed.jpg" width="412" height="915" alt="Photo check passed: everything looks good."><span>Looks good</span></div>
+                <div class="labelled"><img class="screen screen--sm" src="img/certify-photo-cables.jpg" width="412" height="915" alt="Photo check failed: the internet cable is in a LAN port."><span>Wrong port</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04.4 -->
+          <div class="cell span-12">
+            <span class="sub">04.4</span>
+            <div class="stack-lg">
+              <div class="stack-sm"><div class="pills"><span class="label">04.4</span><span class="pill pill--concept">Concept</span></div><h3 class="h3">Show managers where to act, not just a score</h3></div>
+              <figure class="anno anno--wide">
+                <div class="anno-media">
+                  <div class="anno-img">
+                    <img class="shot" src="img/certify-insights.jpg" width="1440" height="1117" alt="Performance Insights concept for an L2 manager: L1 managers with average performance scores, and an AI insight that says one technician has a high number of incomplete certificates.">
+                    <span class="pin" data-n="1" style="left: 40.5%; top: 37.9%">1</span>
+                    <span class="pin" data-n="2" style="left: 53.3%; top: 76.5%">2</span>
+                  </div>
+                </div>
+                <ol class="anno-notes">
+                  <li data-n="1"><span><b>A score</b>Tells a manager something is wrong.</span></li>
+                  <li data-n="2"><span><b>A flag and a sentence</b>Tell them who to talk to.</span></li>
+                </ol>
+                <svg class="anno-lines" aria-hidden="true"></svg>
+              </figure>
+              <dl class="cdw cdw--row">
+                <div><dt>Context</dt><dd>Managers oversaw thousands of technicians and installation certificates with no overall view of quality, so struggling technicians and training needs went unnoticed.</dd></div>
+                <div><dt>Decision</dt><dd>Score every technician on five install-quality metrics. If one technician is flagged on one metric, their L1 manager is flagged at the L2 level, even when the team is doing well overall. Plain-language AI insights explain what changed, such as “One technician has a high number of incomplete certificates.”</dd></div>
+                <div><dt>Why</dt><dd>A score alone tells managers something is wrong; a flag and a sentence tell them who to talk to.</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <!-- 04.5 -->
+          <div class="cell span-7">
+            <span class="sub">04.5</span>
+            <figure class="anno">
+              <div class="anno-media">
+                <div class="anno-img">
+                  <img class="screen" src="img/cert-issues.jpg" width="412" height="915" alt="Certify this installation: two checks need attention, poor coverage in the bathroom and only one of two recommended pods placed; the passed checks below; Certify installation button.">
+                  <span class="pin" data-n="1" style="left: 50%; top: 40%">1</span>
+                  <span class="pin" data-n="2" style="left: 40%; top: 66%">2</span>
+                  <span class="pin" data-n="3" style="left: 66%; top: 90.5%">3</span>
+                </div>
+              </div>
+              <ol class="anno-notes">
+                <li data-n="1"><span><b>Verdicts, not readings</b>Each issue named in words.</span></li>
+                <li data-n="2"><span><b>Passed checks</b>Summarized, not hidden.</span></li>
+                <li data-n="3"><span><b>Certify anyway</b>Issues are recorded, and the customer gets a copy by text.</span></li>
+              </ol>
+              <svg class="anno-lines" aria-hidden="true"></svg>
+            </figure>
+          </div>
+          <div class="cell span-5">
+            <div class="stack-lg">
+              <div class="stack-sm"><div class="pills"><span class="label">04.5</span><span class="pill pill--design">In design</span></div><h3 class="h3">Rava walks customers through their certificate</h3></div>
+              <dl class="cdw">
+                <div><dt>Context</dt><dd>A technician can certify an install even when a room is weak or a recommended pod wasn’t installed. A reading like −74 dBm means nothing to the person who lives there.</dd></div>
+                <div><dt>Decision</dt><dd>The technician’s summary states verdicts and names any issue. The customer gets an SMS with an invite to install RouteThis Helps, and Rava offers a guided walk-through or answers questions: the install details to confirm, speeds against their plan, then coverage floor by floor in plain words, such as “Email and browsing only”. Where a pod was recommended but never installed, Rava says so and offers to help order one.</dd></div>
+                <div><dt>Why</dt><dd>It applies the lesson from Rava’s coverage tool, verdicts instead of raw readings, and makes the end of an install the customer’s first conversation with Rava. <a class="link" href="rava-chat.html#coverage">Chat mode 03.2</a></dd></div>
+              </dl>
+            </div>
+          </div>
+          <div class="cell span-12">
+            <div class="stack">
+              <div class="frame frame--bare">
+                <div class="labelled"><img class="screen" src="img/cert-greet.jpg" width="402" height="874" alt="Rava: your WiFi certificate is ready; a guided walk-through or specific questions."><span>Greeting</span></div>
+                <div class="labelled"><img class="screen" src="img/cert-speed.jpg" width="402" height="874" alt="Rava explains the speed test against the customer’s plan."><span>Speed vs. plan</span></div>
+                <div class="labelled"><img class="screen screen--crop" src="img/cert-cov2.jpg" width="402" height="1634" alt="Coverage on level 2: Bedroom 2 drops some activities and the bathroom is down to email and browsing; a second pod was recommended and never installed."><span>Coverage, level 2</span></div>
+              </div>
+              <p class="caption">In design: Rava walking the customer through the certificate.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 Outcome -->
+      <section class="section" id="outcome" aria-labelledby="h-outcome">
+        <div class="labelbar"><span><b>05</b> / Outcome</span><span>Where each part stands</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="5">05</span>
+          <div class="stack"><h2 class="h2" id="h-outcome">Outcome</h2></div>
+        </div>
+        <div class="grid">
+          <div class="cell tile-lime span-5">
+            <span class="sub">05.1</span>
+            <div class="stack-lg">
+              <p class="label">Headline result</p>
+              <p class="metric">2 days</p>
+              <p>from Figma to a working Android build, down from a multi-week cycle</p>
+            </div>
+          </div>
+          <div class="cell span-7">
+            <span class="sub">05.2</span>
+            <div class="status-rows">
+              <div><b>Install hub</b><span class="pill pill--testing">Internal testing</span><p>Positive so far, mostly bug finds; technician testing is next.</p></div>
+              <div><b>Certificate to Rava</b><span class="pill pill--design">In design</span><p>Technician summary, SMS invite and Rava walk-through.</p></div>
+              <div><b>AI photo check</b><span class="pill pill--concept">Concept</span><p>At concept stage.</p></div>
+              <div><b>Manager dashboard</b><span class="pill pill--concept">Concept</span><p>Remained a concept.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 Reflection -->
+      <section class="section" id="reflection" aria-labelledby="h-reflection">
+        <div class="labelbar"><span><b>06</b> / Reflection</span><span>Designing with AI</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="6">06</span>
+          <div class="stack"><h2 class="h2" id="h-reflection">Reflection</h2></div>
+        </div>
+        <div class="grid">
+          <div class="cell span-12">
+            <span class="sub">06.1</span>
+            <div class="stack">
+              <h3 class="h3">What I learned about designing with AI</h3>
+              <ul class="list">
+                <li>I get better results from AI when I give it a clear goal for each tool, rather than a description of the tool.</li>
+                <li>AI saves real time on housekeeping and documentation in design files.</li>
+                <li>Quality checks and audits can and should be automated.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="More field notes">
+        <div class="cell cell--link"><span class="sub">←</span><div class="cell-inner stack-sm"><p class="label">Field note 01</p><a class="h3 stretch" href="rava.html">Rava</a></div></div>
+        <div class="cell cell--link"><span class="sub">→</span><div class="cell-inner stack-sm"><p class="label">Field note 03 · Deep dive</p><a class="h3 stretch" href="rava-chat.html">Rava chat mode</a></div></div>
+      </nav>
+    </div>
+  </div>
+</main>
+<footer class="wrap contact" id="contact" aria-labelledby="contact-title">
+  <div class="labelbar"><span><b>→</b> Contact</span><span>Montreal / English · Français · Español</span></div>
+  <div class="grid">
+    <div class="cell span-7">
+      <span class="sub">C.1</span>
+      <div class="stack-lg">
+        <h2 class="statement" id="contact-title" style="font-size: clamp(1.75rem, 3.4vw, 2.75rem)">Let’s talk.</h2>
+        <p class="lede">I’m always happy to talk about AI products, complex systems and design leadership. LinkedIn is the fastest way to reach me.</p>
+      </div>
+    </div>
+    <div class="cell span-5">
+      <span class="sub">C.2</span>
+      <div class="stack-lg">
+        <div class="actions" style="flex-direction: column; align-items: stretch">
+          <a class="btn btn--primary" href="https://www.linkedin.com/in/isabel-quintela/">Message me on LinkedIn <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn" href="Isabel-Quintela-CV.pdf">Résumé (PDF) <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+        <p class="small">Or email me at <a class="link email" href="mailto:isaqrux@gmail.com">isaqrux@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="colophon"><span>© 2026 Isabel Quintela</span><span>Designed and built with AI</span></div>
+</footer>
+<script src="site.js" defer></script>
+</body>
+</html>

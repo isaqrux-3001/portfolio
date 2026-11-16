@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Field note 03 · Rava chat mode</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Isabel Quintela <span>/ Field notes</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#work" aria-current="page">Work</a>
+      <a href="about.html">About</a>
+      <a href="Isabel-Quintela-CV.pdf">Résumé</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+  <header class="cs-hero">
+    <div class="labelbar"><span><b>Field note 03</b> / Rava chat mode</span><span>Deep dive / Continues field note 01</span></div>
+    <div class="cs-hero-grid" style="padding-top: clamp(32px, 5vw, 64px)">
+      <span class="numeral numeral--hero" data-count="3">03</span>
+      <div class="stack-lg">
+        <div class="pills"><span class="pill pill--design">In design · Nov 2026</span></div>
+        <h1 class="h1">Rava chat mode: one conversation, two ways to talk</h1>
+        <p class="lede">How I’m extending Rava’s voice patterns to chat, so people can type or talk in the same conversation.</p>
+      </div>
+    </div>
+    <dl class="meta">
+      <div><dt>Role</dt><dd>Lead Product Designer</dd></div>
+      <div><dt>Status</dt><dd>In design, November 2026</dd></div>
+      <div class="meta-wide"><dt>Scope</dt><dd>Chat/Talk switch, all six tools in chat, failure states, a concept component set</dd></div>
+    </dl>
+    <div class="grid" style="border-top: 0">
+      <div class="cell span-8">
+        <span class="sub">00.1</span>
+        <div class="stack">
+          <div class="frame frame--bare">
+            <div class="labelled"><img class="screen screen--sm" src="img/chat-a.jpg" width="402" height="874" alt="Chat mode: the customer types “Netflix keeps buffering on my living room TV” under Rava’s greeting."><span>a · Types</span></div>
+            <div class="labelled"><img class="screen screen--sm" src="img/chat-b.jpg" width="402" height="874" alt="The message is sent; Rava’s status says Thinking and a short line explains what it’s checking."><span>b · Thinks</span></div>
+            <div class="labelled"><img class="screen screen--sm" src="img/chat-c.jpg" width="402" height="874" alt="Rava’s reply appears word by word, with the status Typing."><span>c · Replies</span></div>
+            <div class="labelled"><img class="screen screen--sm" src="img/chat-d.jpg" width="402" height="874" alt="Rava ends on a question and waits, with quick replies."><span>d · Waits</span></div>
+          </div>
+          <p class="caption">The customer types, Rava thinks, replies word by word, then waits with quick replies.</p>
+        </div>
+      </div>
+      <div class="cell cell--raised span-4">
+        <span class="sub">00.2</span>
+        <dl class="tldr">
+          <p class="label">TL;DR</p>
+          <div><dt>The idea</dt><dd>Chat mode keeps the same conversation but lets people type or send a voice message, and switch between Chat and Talk at any point.</dd></div>
+          <div><dt>My approach</dt><dd>Instead of designing chat from scratch, I turned the voice decisions into rules both modes share.</dd></div>
+          <div><dt>Status</dt><dd>All six tools have a chat version, plus failure states and a concept component set. In design.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </header>
+
+  <div class="cs">
+    <nav class="rail" aria-label="On this page">
+      <p class="label">Field note 03</p>
+      <ol>
+        <li><a href="#why"><span>01</span>Why chat</a></li>
+        <li><a href="#rules"><span>02</span>Shared rules</a></li>
+        <li><a href="#tools"><span>03</span>Tools in chat</a></li>
+        <li><a href="#failure"><span>04</span>Failure states</a></li>
+      </ol>
+    </nav>
+
+    <div class="cs-main">
+
+      <section class="section" id="why" aria-labelledby="h-why">
+        <div class="labelbar"><span><b>01</b> / Why chat</span><span>Context</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="1">01</span>
+          <div class="stack"><h2 class="h2" id="h-why">Why chat</h2></div>
+        </div>
+        <div class="grid">
+          <div class="cell span-6">
+            <span class="sub">01.1</span>
+            <p>Rava started as voice only. Chat mode keeps the same conversation but lets people type or send a voice message, and switch between Chat and Talk at any point.</p>
+          </div>
+          <div class="cell span-6">
+            <span class="sub">01.2</span>
+            <p>Not every moment allows for a phone call. The router is in the kitchen, the kids are circling the island, the grandparents are mid-story, and mom and dad are trying to get the TV back online. In that chaos, chat lets them fix the problem without having to shout over everyone.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="rules" aria-labelledby="h-rules">
+        <div class="labelbar"><span><b>02</b> / Shared rules</span><span>What carried over from voice</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="2">02</span>
+          <div class="stack"><h2 class="h2" id="h-rules">What carried over from voice</h2><p class="lede">Instead of designing chat from scratch, I turned the voice decisions into rules both modes share. They also live in a small concept component set: the orb avatar, the Chat/Talk switch, quick replies and the message field.</p></div>
+        </div>
+        <div class="grid">
+          <div class="cell span-12">
+            <span class="sub">02.1</span>
+            <figure class="anno">
+              <div class="anno-media">
+                <div class="anno-img">
+                  <img class="screen" src="img/chat-d.jpg" width="402" height="874" alt="A chat turn: Rava’s header with the orb avatar, the customer’s teal bubble, Rava’s reply without a bubble, quick-reply chips, and the Chat/Talk switch.">
+                  <span class="pin" data-n="1" style="left: 9.6%; top: 10.4%">1</span>
+                  <span class="pin" data-n="2" style="left: 76%; top: 43%">2</span>
+                  <span class="pin" data-n="3" style="left: 26%; top: 54%">3</span>
+                  <span class="pin" data-n="4" style="left: 20%; top: 69.6%">4</span>
+                  <span class="pin" data-n="5" style="left: 65%; top: 93.6%">5</span>
+                </div>
+              </div>
+              <ol class="anno-notes">
+                <li data-n="1"><span><b>The orb becomes the avatar</b>Same states: blue while Rava works, lime when it’s the customer’s turn.</span></li>
+                <li data-n="2"><span><b>Colour means whose turn it is</b>Teal is the customer’s move.</span></li>
+                <li data-n="3"><span><b>Rava’s words have no bubble</b>They sit open on the background, as in voice.</span></li>
+                <li data-n="4"><span><b>One-tap answers</b>Quick replies as outlined chips.</span></li>
+                <li data-n="5"><span><b>Chat / Talk</b>Switch at any point in the conversation.</span></li>
+              </ol>
+              <svg class="anno-lines" aria-hidden="true"></svg>
+            </figure>
+          </div>
+          <div class="cell span-4"><span class="sub">02.2</span><div class="stack-sm"><h3 class="h3">Colour means whose turn it is</h3><p>White is Rava telling, teal is the customer’s move, in both modes.</p></div></div>
+          <div class="cell span-4"><span class="sub">02.3</span><div class="stack-sm"><h3 class="h3">The orb becomes the avatar</h3><p>In chat it sits in the header with the same states: blue while Rava works, lime when it’s the customer’s turn.</p></div></div>
+          <div class="cell span-4"><span class="sub">02.4</span><div class="stack-sm"><h3 class="h3">Rava’s words have no bubble</h3><p>They sit open on the background, as in voice; only the customer’s words get bubbles.</p></div></div>
+          <div class="cell span-4"><span class="sub">02.5</span><div class="stack-sm"><h3 class="h3">Nothing fades</h3><p>Every turn stays at full contrast, so people can scroll back and re-read anything if needed.</p></div></div>
+          <div class="cell span-4"><span class="sub">02.6</span><div class="stack-sm"><h3 class="h3">Same pace</h3><p>Replies appear word by word at the voice screen’s speed, 40 characters a second.</p></div></div>
+          <div class="cell span-4"><span class="sub">02.7</span><div class="stack-sm"><h3 class="h3">One-tap answers</h3><p>Quick replies appear as outlined chips under Rava’s question.</p></div></div>
+        </div>
+      </section>
+
+      <section class="section" id="tools" aria-labelledby="h-tools">
+        <div class="labelbar"><span><b>03</b> / Tools in chat</span><span>6 of 6 tools</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="3">03</span>
+          <div class="stack"><h2 class="h2" id="h-tools">Every tool works in chat</h2><p class="lede">All six tools have a chat version: the line test, WiFi coverage, speed test, WiFi spot check, photo and video. Each one runs inside the conversation instead of on a screen of its own.</p></div>
+        </div>
+        <div class="grid">
+          <div class="cell cell--flush span-12">
+            <span class="sub">03.1</span>
+            <div class="tools">
+              <figure>
+                <p class="label"><b>01</b> Line test</p>
+                <img class="screen" src="img/chat-tool-linetest.jpg" width="402" height="874" alt="Line test in chat: Rava checks that the connection reaches popular websites; Prime Video has passed and Instagram is being checked, inside the conversation.">
+                <figcaption>Rava checks that popular sites load, one at a time, right in the chat.</figcaption>
+              </figure>
+              <figure>
+                <p class="label"><b>02</b> WiFi coverage</p>
+                <img class="screen" src="img/chat-cov-compare.jpg" width="402" height="874" alt="WiFi coverage in chat: two readings, Great next to the router and Weak by the TV, and Rava explains that is why Netflix keeps buffering.">
+                <figcaption>Two readings, by the router and by the TV, compared in words.</figcaption>
+              </figure>
+              <figure>
+                <p class="label"><b>03</b> Speed test</p>
+                <img class="screen" src="img/chat-tool-speed.jpg" width="402" height="874" alt="Speed test in chat: the result shown as activities, email and web and social media highlighted, 4K streaming and many people not, with an offer to restart the router.">
+                <figcaption>Speed as what you can do: fast enough for social media, too slow for 4K.</figcaption>
+              </figure>
+              <figure>
+                <p class="label"><b>04</b> WiFi spot check</p>
+                <img class="screen" src="img/chat-tool-spot.jpg" width="402" height="874" alt="WiFi spot check in chat: after the fix, Rava checks the WiFi by the TV again: good WiFi here, weak before the fix.">
+                <figcaption>After a fix, the same spot again: weak before, good now.</figcaption>
+              </figure>
+              <figure>
+                <p class="label"><b>05</b> Photo</p>
+                <img class="screen" src="img/chat-tool-photo.jpg" width="402" height="874" alt="Photo in chat: the customer’s photo of the router, tagged Router, In the open and Mesh system, and Rava asks about extra WiFi pods.">
+                <figcaption>Rava confirms what’s in the photo: the router, out in the open.</figcaption>
+              </figure>
+              <figure>
+                <p class="label"><b>06</b> Video</p>
+                <img class="screen" src="img/chat-tool-video.jpg" width="402" height="874" alt="Video in chat: Rava shows frames from the customer’s video and points to 0:04, where the internet light blinks orange, and 0:09, where the cables look plugged in.">
+                <figcaption>Rava points to the moment that matters: a blinking orange light at 0:04.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="cell span-5" id="coverage">
+            <span class="sub">03.2</span>
+            <div class="stack">
+              <p class="label">The coverage tool, in three steps</p>
+              <ol class="timeline timeline--v timeline--story">
+                <li><b>Speed in Mbps</b><span>People on faster plans read the numbers as promises, and called to complain.</span></li>
+                <li class="is-key"><b>One bar, plain labels</b><span>The bar empties as you walk away from the router, with a word for each state instead of a number.</span></li>
+                <li class="is-next"><b>Two readings, compared</b><span>In chat, Rava measures next to the router and again where the problem is: Weak or Great, never a percentage. If the phone drops off the WiFi, that spot is the dead spot.</span></li>
+              </ol>
+            </div>
+          </div>
+          <div class="cell span-7">
+            <span class="sub">03.3</span>
+            <div class="frame frame--bare">
+              <div class="labelled"><img class="screen screen--sm" src="img/chat-cov-router.jpg" width="402" height="874" alt="Coverage walk in chat: Rava measuring the WiFi next to the router."><span>By the router</span></div>
+              <div class="labelled"><img class="screen screen--sm" src="img/chat-cov-nowifi.jpg" width="402" height="874" alt="No WiFi by the TV: the phone dropped off the WiFi there, so that spot is the dead spot."><span>No WiFi: the dead spot</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="failure" aria-labelledby="h-failure">
+        <div class="labelbar"><span><b>04</b> / Failure states</span><span>When the AI can’t handle it</span></div>
+        <div class="sec-head">
+          <span class="numeral" data-count="4">04</span>
+          <div class="stack"><h2 class="h2" id="h-failure">When the AI can’t handle it</h2><p class="lede">Each moment the AI can’t handle gets its own design instead of a generic error.</p></div>
+        </div>
+        <div class="grid">
+          <figure class="cell span-3">
+            <span class="sub">04.1</span>
+            <div class="stack">
+              <img class="screen" style="width: 100%" src="img/chat-mic.jpg" width="412" height="892" alt="Rava’s greeting before the microphone prompt: it explains it needs the microphone, says it’s fine if now isn’t a good time, and offers Yes, I’m ready to talk or No, I prefer to chat.">
+              <figcaption class="small"><strong>Before the mic prompt.</strong> Rava explains why it needs the microphone, and offers to wait if now isn’t a good time.</figcaption>
+            </div>
+          </figure>
+          <figure class="cell span-3">
+            <span class="sub">04.2</span>
+            <div class="stack">
+              <img class="screen" style="width: 100%" src="img/chat-silence.jpg" width="402" height="874" alt="Long silence: Rava adds one short line, No rush, I’m here whenever you’re ready, and the quick replies stay.">
+              <figcaption class="small"><strong>Long silence.</strong> After about two minutes, Rava checks in once, without pushing. If the customer left the app, one notification repeats the question. After two hours the chat ends, and the transcript stays readable.</figcaption>
+            </div>
+          </figure>
+          <figure class="cell span-3">
+            <span class="sub">04.3</span>
+            <div class="stack">
+              <img class="screen" style="width: 100%" src="img/chat-offline.jpg" width="402" height="874" alt="Lost connection: a banner says No internet connection, your message will send when you’re back online, try mobile data; the customer’s message shows Waiting to send.">
+              <figcaption class="small"><strong>Lost connection.</strong> The message says “Waiting to send”, never “Failed”, and goes out on its own when the app reconnects. If the WiFi is down, Rava suggests mobile data. Nothing the customer wrote is lost.</figcaption>
+            </div>
+          </figure>
+          <figure class="cell span-3">
+            <span class="sub">04.4</span>
+            <div class="stack">
+              <img class="screen" style="width: 100%" src="img/chat-nocontact.jpg" width="402" height="874" alt="No support contact: Rava offers a quick fix first, then says it can’t connect the customer to support from here and to contact their service provider.">
+              <figcaption class="small"><strong>No support contact.</strong> When the provider hasn’t set one up, Rava says so plainly and points people to their provider.</figcaption>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="More field notes">
+        <div class="cell cell--link"><span class="sub">←</span><div class="cell-inner stack-sm"><p class="label">Field note 01</p><a class="h3 stretch" href="rava.html">Rava</a></div></div>
+        <div class="cell cell--link"><span class="sub">→</span><div class="cell-inner stack-sm"><p class="label">Field note 04</p><a class="h3 stretch" href="workforce-management.html">Workforce management</a></div></div>
+      </nav>
+    </div>
+  </div>
+</main>
+<footer class="wrap contact" id="contact" aria-labelledby="contact-title">
+  <div class="labelbar"><span><b>→</b> Contact</span><span>Montreal / English · Français · Español</span></div>
+  <div class="grid">
+    <div class="cell span-7">
+      <span class="sub">C.1</span>
+      <div class="stack-lg">
+        <h2 class="statement" id="contact-title" style="font-size: clamp(1.75rem, 3.4vw, 2.75rem)">Let’s talk.</h2>
+        <p class="lede">I’m always happy to talk about AI products, complex systems and design leadership. LinkedIn is the fastest way to reach me.</p>
+      </div>
+    </div>
+    <div class="cell span-5">
+      <span class="sub">C.2</span>
+      <div class="stack-lg">
+        <div class="actions" style="flex-direction: column; align-items: stretch">
+          <a class="btn btn--primary" href="https://www.linkedin.com/in/isabel-quintela/">Message me on LinkedIn <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn" href="Isabel-Quintela-CV.pdf">Résumé (PDF) <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+        <p class="small">Or email me at <a class="link email" href="mailto:isaqrux@gmail.com">isaqrux@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="colophon"><span>© 2026 Isabel Quintela</span><span>Designed and built with AI</span></div>
+</footer>
+<script src="site.js" defer></script>
+</body>
+</html>
