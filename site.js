@@ -1,4 +1,4 @@
-/* Field notes: quiet interactions. Everything renders complete without this script. */
+/* Portfolio: quiet interactions. Everything renders complete without this script. */
 (function () {
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -43,7 +43,11 @@
   /* 0. Keep sticky offsets in step with the real header height (it wraps to two rows on phones) */
   var header = document.querySelector(".site-header");
   function syncHeader() {
-    if (header) document.documentElement.style.setProperty("--header-h", header.offsetHeight + "px");
+    if (!header) return;
+    // measure without the last value, or the header can never shrink back after a resize
+    var root = document.documentElement.style;
+    root.removeProperty("--header-h");
+    root.setProperty("--header-h", header.offsetHeight + "px");
   }
   syncHeader();
   window.addEventListener("resize", syncHeader);

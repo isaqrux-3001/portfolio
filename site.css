@@ -1,4 +1,4 @@
-/* Field notes. Layout: a strict 12-column grid drawn as ruled panels. Cells share 1px sage hairlines,
+/* Portfolio. Layout: a strict 12-column grid drawn as ruled panels. Cells share 1px sage hairlines,
    every section is numbered (01, 02…) and every cell carries a sub-index (03.2) in its top-right corner.
    Dark-first by design: one forest ground, pale green-white text, sage for structure, lime used sparingly. */
 :root {
@@ -175,7 +175,7 @@ mark.tbc {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
   gap: 0 var(--s5); min-height: var(--header-h);
 }
-.brand { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--ink); text-decoration: none; }
+.brand { display: inline-flex; flex-wrap: wrap; align-items: center; align-content: center; gap: 0 10px; min-height: 44px; color: var(--ink); text-decoration: none; }
 .brand span { color: var(--sage); }
 .nav { display: flex; flex-wrap: wrap; gap: 0 var(--s5); }
 .nav a {
