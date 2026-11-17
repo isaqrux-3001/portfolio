@@ -576,3 +576,39 @@ mark.tbc {
 .quote blockquote { max-width: 44ch; }
 .quote figcaption::before { content: "— "; color: var(--lime); }
 .list { max-width: 68ch; }
+
+/* Full-screen image on phones and tablets (opened by site.js) */
+html.lb-open { overflow: hidden; }
+.lightbox {
+  position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0;
+  padding: calc(env(safe-area-inset-top, 0px) + 60px) max(16px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 20px) max(16px, env(safe-area-inset-left, 0px));
+  border: 0; background: var(--forest); color: var(--ink);
+  display: flex; flex-direction: column; align-items: center; gap: var(--s4);
+}
+.lightbox:not([open]) { display: none; }
+.lightbox[open] { animation: lb-in var(--t) var(--ease); }
+.lightbox:focus { outline: none; }
+.lightbox::backdrop { background: var(--forest); }
+@keyframes lb-in { from { opacity: 0; } }
+.lightbox-stage { flex: 1 1 auto; min-height: 0; width: 100%; display: flex; align-items: center; justify-content: center; }
+.lightbox-stage img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.lightbox-stage img.is-screen { border-radius: 13% / 6%; }
+.lightbox.is-pan .lightbox-stage {
+  justify-content: flex-start; overflow-x: auto; overscroll-behavior: contain;
+  width: calc(100% + 32px); margin-inline: -16px; padding-inline: 16px;
+}
+.lightbox.is-pan .lightbox-stage img { max-width: none; max-height: none; width: auto; flex: 0 0 auto; }
+.lightbox-hint { display: none; }
+.lightbox.is-pan .lightbox-hint { display: block; flex: 0 0 auto; margin: 0; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); }
+.lightbox-stage img.is-crop { aspect-ratio: 402 / 874; height: 100%; object-fit: cover; object-position: top; }
+.lightbox-cap { flex: 0 0 auto; max-width: 60ch; margin: 0; text-align: center; font-size: 0.875rem; line-height: 1.5; color: var(--ink-2); }
+.lightbox-cap b { display: block; margin-bottom: 2px; font-family: var(--sans); font-weight: 500; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); }
+.lightbox-close {
+  position: absolute; top: calc(env(safe-area-inset-top, 0px) + 8px); right: max(16px, env(safe-area-inset-right, 0px));
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 2px;
+  border: 0; background: none; color: var(--sage); cursor: pointer;
+  font-family: var(--sans); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+  transition: color var(--t) var(--ease);
+}
+.lightbox-close span { font-size: 1.125rem; letter-spacing: 0; }
+.lightbox-close:hover, .lightbox-close:focus-visible { color: var(--lime); }

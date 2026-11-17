@@ -214,4 +214,83 @@
     });
     setCurrent(Object.keys(map)[0]);
   }
+
+  /* 4. Phones and tablets: tapping a screenshot opens it full screen. Any tap, Close, Esc or Back closes it.
+     Images inside links (Home cards, teasers) keep going to their page. */
+  var touch = window.matchMedia("(max-width: 760px), (hover: none) and (pointer: coarse)");
+  if (typeof HTMLDialogElement === "function") {
+    var lb = null, lbImg, lbCap, lbPushed = false;
+    function lbBuild() {
+      lb = document.createElement("dialog");
+      lb.className = "lightbox";
+      lb.setAttribute("aria-label", "Image, full screen");
+      lb.tabIndex = -1; // focus the viewer itself, so Close does not open with a focus ring on a tap
+      lb.innerHTML = '<button class="lightbox-close" type="button">Close <span aria-hidden="true">×</span></button>' +
+        '<div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">Swipe sideways to see the whole image</p><p class="lightbox-cap"></p>';
+      document.body.appendChild(lb);
+      lbImg = lb.querySelector("img");
+      lbCap = lb.querySelector(".lightbox-cap");
+      lb.addEventListener("click", function () { if (lb.open) lb.close(); });
+      lb.addEventListener("close", function () {
+        document.documentElement.classList.remove("lb-open");
+        if (lbPushed) { lbPushed = false; if (history.state && history.state.lightbox) history.back(); }
+      });
+      window.addEventListener("resize", function () { if (lb.open) lbFit(); });
+    }
+    /* Wide diagrams on a tall screen would shrink to a strip: show them at full height and let the reader pan sideways */
+    function lbFit() {
+      var stage = lb.querySelector(".lightbox-stage");
+      lb.classList.remove("is-pan");
+      lbImg.style.height = "";
+      var w = lbImg.naturalWidth, h = lbImg.naturalHeight;
+      if (!w || !h) return;
+      var sw = stage.clientWidth, sh = stage.clientHeight;
+      var fitH = Math.min(sh, sw * h / w), panH = Math.min(sh, h);
+      if (panH > fitH * 1.5) {
+        lb.classList.add("is-pan");
+        lbImg.style.height = panH + "px";
+        stage.scrollLeft = 0;
+      }
+    }
+    function caption(img) {
+      var labelled = img.closest(".labelled");
+      if (labelled) { var s = labelled.querySelector("span"); return { title: s ? s.textContent : "", text: "" }; }
+      var fig = img.closest("figure");
+      if (!fig || fig.classList.contains("anno")) return { title: "", text: "" };
+      var label = fig.querySelector(".label"), cap = fig.querySelector("figcaption");
+      return { title: label ? label.textContent : "", text: cap ? cap.textContent : "" };
+    }
+    function lbOpen(img) {
+      if (!lb) lbBuild();
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt;
+      lbImg.className = (img.classList.contains("screen") ? "is-screen" : "") + (img.classList.contains("screen--crop") ? " is-crop" : "");
+      var c = caption(img);
+      lbCap.textContent = "";
+      if (c.title) { var b = document.createElement("b"); b.textContent = c.title.trim(); lbCap.appendChild(b); }
+      if (c.text) lbCap.appendChild(document.createTextNode(c.text.trim()));
+      lbCap.hidden = !(c.title || c.text);
+      document.documentElement.classList.add("lb-open");
+      lb.showModal();
+      lb.focus();
+      if (lbImg.complete) lbFit(); else lbImg.onload = lbFit;
+      try {
+        // Back closes the image. Reuse a leftover entry rather than stacking another one.
+        if (!(history.state && history.state.lightbox)) history.pushState({ lightbox: true }, "");
+        lbPushed = true;
+      } catch (e) {}
+    }
+    window.addEventListener("popstate", function () {
+      if (lb && lb.open) { lbPushed = false; lb.close(); }
+    });
+    document.addEventListener("click", function (e) {
+      if (!touch.matches || !e.target.closest) return;
+      var hit = e.target.closest("main img, main .anno-img");
+      if (!hit || hit.closest("a, .cell--link")) return;
+      var img = hit.tagName === "IMG" ? hit : hit.querySelector("img");
+      if (!img) return;
+      e.preventDefault();
+      lbOpen(img);
+    });
+  }
 })();
